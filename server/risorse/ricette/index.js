@@ -11,4 +11,7 @@ router.get('/:id([0-9a-z]{24})', Ricette.dettaglioRicetta);
 //rotta che crea una ricetta
 router.post('/', Ricette.creaRicetta);
 
+//rotta che cerca una ricetta per ingrediente o categoria
+router.get('/cerca', Ricette.cercaperIngrediente);
+
 module.exports= router;

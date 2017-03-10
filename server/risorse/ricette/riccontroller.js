@@ -22,6 +22,30 @@ module.exports = (function(){
   };
 
 
+ //  var cercaperIngrediente = function(req,res){
+ //   var ingrediente = req.query.ingrediente;
+ //   Ricette.find({"ingredienti": ingrediente})
+ //   .exec().then(function(data){
+ //    res.status(200).json(data);
+ //  }).catch(function (err) {
+ //  throw err;
+ //  });
+ //
+ // };
+
+//ricerca per categoria o ingrediente
+ var cercaperIngrediente = function(req,res){
+    var ingrediente = req.query.ingrediente;
+    var categoria = req.query.categoria;
+    Ricette.find({$or: [{"ingredienti":ingrediente},{"categoria":categoria}]})
+    .exec().then(function(data){
+      res.status(200).json(data);
+    }).catch(function (err){
+    throw err;
+    });
+  };
+
+
    var creaRicetta = function(req,res){
      var nuovaricetta = new Ricette(req.body);
      nuovaricetta.save().then(function(data){
@@ -36,6 +60,7 @@ module.exports = (function(){
    return {
      getRicette: getRicette,
      dettaglioRicetta: dettaglioRicetta,
-     creaRicetta: creaRicetta
+     creaRicetta: creaRicetta,
+     cercaperIngrediente: cercaperIngrediente
    }
 })();

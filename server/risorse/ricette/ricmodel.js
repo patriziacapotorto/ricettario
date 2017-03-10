@@ -9,7 +9,7 @@ var ricettaSchema = new Schema({
                    categoria: {
                          type: String,
                          enum: ['Antipasto','Primo','Secondo','Dolce'],
-                         required: [true,'Devi inserire il cognome']
+                         required: [true,'Devi inserire la categoria']
                         },
                     immagini: [{
                           type: String,
