@@ -1,0 +1,21 @@
+{
+  "name": "ricettario",
+  "version": "1.0.0",
+  "description": "app ricette",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "app"
+  ],
+  "author": "patrizia",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.8.6",
+    "path": "^0.12.7"
+  }
+}
