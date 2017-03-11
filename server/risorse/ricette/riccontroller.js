@@ -86,6 +86,15 @@ module.exports = (function(){
    });
   };
 
+ var updateRicette = function(req,res){
+   var id = req.params.id;
+   var newData = req.body;
+   Ricette.findByIdAndUpdate(id, newData).then(function(data){
+     res.status(200).json(data);
+   }).catch(function (err){
+   throw err;
+   });
+};
 
    return {
      getRicette: getRicette,
@@ -94,6 +103,7 @@ module.exports = (function(){
      cercaperIngrediente: cercaperIngrediente,
      votoRicetta: votoRicetta,
      commentoRicetta: commentoRicetta,
-     eliminaRicetta: eliminaRicetta
+     eliminaRicetta: eliminaRicetta,
+     updateRicette: updateRicette
    }
 })();

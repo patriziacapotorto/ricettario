@@ -8,6 +8,9 @@ router.get('/', Ricette.getRicette);
 //rotta che restituisce una ricetta
 router.get('/:id([0-9a-z]{24})', Ricette.dettaglioRicetta);
 
+//rotta che aggiorna i dati di una ricetta
+router.put('/id/:id([0-9a-z]{24})', Ricette.updateRicette);
+
 //rotta che restituisce una ricetta
 router.put('/:id([0-9a-z]{24})', Ricette.votoRicetta);
 
