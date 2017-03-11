@@ -53,14 +53,56 @@ module.exports = (function(){
      }).catch(function(err){
        res.status(500).json(err);
      });
+};
 
-   }
+   var votoRicetta = function(req,res){
+    var id = req.params.id;
+    var voto = req.body.voto;
+    Ricette.findById(id).exec().then(function(data){
+    data.voto.nvoti +=1;
+    data.voto.svoti +=voto;
+     return data.save();
+   }).then(function(data){
+     res.status(200).json(data);
+   }).catch(function (err) {
+   throw err;
+   });
+  };
+
+  var commentoRicetta = function(req,res){
+    var id = req.params.id;
+    var autore = req.body.autore;
+    var commento = req.body.commento;
+
+    Ricette.findById(id).exec().then(function(ricetta){
+      var commento = req.body;
+      commento.datacreazione = new Date();
+      ricetta.commenti.push(req.body);
+      return ricetta.save();
+    }).then(function(data){
+      res.status(200).json(data);
+    }).catch(function (err) {
+    throw err;
+    });
+  };
+
+  var eliminaRicetta = function(req,res){
+    var id = req.params.id;
+    Ricette.findByIdAndRemove(id).then(function(data){
+    res.status(200).json(data);
+   }).catch(function (err) {
+   throw err;
+   });
+  };
 
 
    return {
      getRicette: getRicette,
      dettaglioRicetta: dettaglioRicetta,
      creaRicetta: creaRicetta,
-     cercaperIngrediente: cercaperIngrediente
+     cercaperIngrediente: cercaperIngrediente,
+     votoRicetta: votoRicetta,
+     commentoRicetta: commentoRicetta,
+     eliminaRicetta: eliminaRicetta
    }
 })();

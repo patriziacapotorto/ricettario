@@ -4,7 +4,8 @@ var Schema = mongoose.Schema;
 var ricettaSchema = new Schema({
                    titolo: {
                         type: String,
-                        required: [true,'Devi inserire il titolo']
+                        required: [true,'Devi inserire il titolo'],
+                        unique: true
                          },
                    categoria: {
                          type: String,
@@ -45,15 +46,22 @@ var ricettaSchema = new Schema({
                       max: [250, "si brucia"],
                     },
                     voto: {
+                      nvoti:{
+                        type:Number,
+                      },
+                      svoti:{
                       type: Number,
-                      min: [1, "poco"],
-                      max: [5, "troppo"],
+                    }
                     },
                     commenti: [{
-                      autore: {
-                        type: Schema.Types.ObjectId,ref:'Users'
+                      autore: {type: Schema.Types.ObjectId,
+                        ref:"Utente"},
+                      commento: { type: String,
+                        lowercase: true
                       },
-                      commento:String
+                      datacreazione:{
+                        type:Date
+                      }
                     }]
 
 });
