@@ -22,6 +22,9 @@ router.get('/username',Utente.ricercaUtenteperUsername);
 //rotta che aggiunge una categoria
 router.put('/categoria/:id([0-9a-z]{24})', Utente.aggiungiCategoria);
 
+//rotta che elimina una categoria
+router.put('/eliminacategoria/:id([0-9a-z]{24})', Utente.eliminaCategoria);
+
 //rotta che elimina una ricetta
 // router.delete('/:id([0-9a-z]{24})', Utente.eliminaUtente);
 

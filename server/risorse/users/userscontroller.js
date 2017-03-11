@@ -66,12 +66,27 @@ res.status(500).send(err);
 });
 };
 
+var eliminaCategoria = function(req,res){
+  var id = req.params.id;
+  var categoria = req.body.categoria;
+  Utente.findById(id).exec().then(function(data){
+    var indice = data.categoria.indexOf(categoria);
+    data.categoria.splice(indice,1);
+    return data.save();
+ }).then(function(data){
+  res.status(200).json(data);
+}).catch(function (err) {
+res.status(500).send(err);
+});
+};
+
    return {
      creaUtente: creaUtente,
      getUtenti: getUtenti,
      dettaglioUtente: dettaglioUtente,
      ricercaUtenteperCategoria:ricercaUtenteperCategoria,
      ricercaUtenteperUsername: ricercaUtenteperUsername,
-     aggiungiCategoria: aggiungiCategoria
+     aggiungiCategoria: aggiungiCategoria,
+     eliminaCategoria: eliminaCategoria
    }
 })();
