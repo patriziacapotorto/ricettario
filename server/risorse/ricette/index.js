@@ -11,13 +11,13 @@ router.get('/:id([0-9a-z]{24})', Ricette.dettaglioRicetta);
 //rotta che restituisce una ricetta
 router.put('/:id([0-9a-z]{24})', Ricette.votoRicetta);
 
-//rotta che restituisce un commento della ricetta
+//rotta che aggiunge un commento della ricetta
 router.put('/commento/:id([0-9a-z]{24})', Ricette.commentoRicetta);
 
 //rotta che crea una ricetta
 router.post('/', Ricette.creaRicetta);
 
-//rotta che crea una ricetta
+//rotta che elimina una ricetta
 router.delete('/:id([0-9a-z]{24})', Ricette.eliminaRicetta);
 
 //rotta che cerca una ricetta per ingrediente o categoria
