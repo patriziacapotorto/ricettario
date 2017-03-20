@@ -15,7 +15,7 @@ router.get('/:id([0-9a-z]{24})', Utente.dettaglioUtente);
 //rotta per la ricerca per categoria
 router.get('/categoria',Utente.ricercaUtenteperCategoria);
 
-//rotta per la ricerca per username
+//rotta per la ricerca per username e password (serve al client per il login)
 router.get('/username',Utente.ricercaUtenteperUsername);
 
 //rotta che aggiunge una categoria

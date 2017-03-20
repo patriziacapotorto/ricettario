@@ -1,0 +1,27 @@
+<div layout="row" layout-xs="column" layout-fill>
+  <div flex='20'></div>
+  <br/>
+  <!-- <md-content class="md-no-momentum" style="background-color:white"> -->
+  <md-content class="md-no-momentum">
+    <!-- <h6 class="md-display-1">{{titolo}}</h6> -->
+    <br/><br/>
+    <br/><br/>
+    <md-input-container class="md-icon-float md-block">
+      <label>Username</label>
+      <md-icon><i class="material-icons">account_circle</i></md-icon>
+      <input ng-model="user.name" type="text">
+    </md-input-container>
+
+    <md-input-container class="md-block">
+      <md-icon><i class="material-icons">lock</i></md-icon>
+      <input ng-model="user.password" type="password" placeholder="Password (required)" ng-required="true">
+    </md-input-container>
+    <!-- <md-checkbox ng-model="variabile">Ricorda password</md-checkbox> -->
+    <br/><br/>
+    <br/>
+
+    <md-button class="md-raised" ng-click="accedi();">Accedi</md-button>
+  </md-content>
+
+<div flex='20'></div>
+</div>

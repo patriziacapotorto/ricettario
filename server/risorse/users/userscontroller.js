@@ -52,11 +52,12 @@ module.exports = (function(){
     });
    };
 
+//ricerca l'utente per username e password
 var ricercaUtenteperUsername = function(req,res){
   var username = req.query.username;
-  Utente.find({
-    "username": username
-  }).exec().then(function(data){
+  var password = req.query.password;
+  Utente.find({"username": username}&&{"password": password})
+  .exec().then(function(data){
    res.status(200).json(data);
  }).catch(function (err) {
  res.status(500).send(err);
